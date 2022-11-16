@@ -6,6 +6,8 @@ import {
   Router,
   UrlTree,
 } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -18,19 +20,20 @@ export class IsLoggedInGuard implements CanActivate, CanActivateChild, CanLoad {
     private router: Router
   ) {}
 
-  canLoad(): boolean | UrlTree {
+  canLoad(): Observable<true | UrlTree> {
     return this.isUserLoggedIn();
   }
-  canActivateChild(): boolean | UrlTree {
-    return this.isUserLoggedIn();
-  }
-
-  canActivate(): boolean | UrlTree {
+  canActivateChild(): Observable<true | UrlTree> {
     return this.isUserLoggedIn();
   }
 
-  private isUserLoggedIn(): boolean | UrlTree {
-    //return this.authService.loggedIn || this.router.parseUrl('/login');
-    return true
+  canActivate(): Observable<true | UrlTree> {
+    return this.isUserLoggedIn();
+  }
+
+  private isUserLoggedIn(): Observable<true | UrlTree> {
+    return this.authService.loggedIn$.pipe(
+      map( (loggedIn) => loggedIn || this.router.parseUrl('/login'))
+    );
   }
 }

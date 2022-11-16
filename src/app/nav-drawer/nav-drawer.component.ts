@@ -1,4 +1,5 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -6,14 +7,13 @@ import { AuthService } from '../auth/auth.service';
   templateUrl: './nav-drawer.component.html',
   styleUrls: ['./nav-drawer.component.scss']
 })
-export class NavDrawerComponent implements OnInit {
+export class NavDrawerComponent implements OnInit, OnDestroy {
 
-  get isUserLoggedIn(): boolean {
-    return this.authService.loggedIn;
-  }
+  isUserLoggedIn!: boolean;
+
+  private subscription!: Subscription;
 
   @Output() closeDrawer = new EventEmitter<void>();
-  
   @HostListener('click') onClick(): void {
     this.closeDrawer.emit();
   }
@@ -21,6 +21,13 @@ export class NavDrawerComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.subscription = this.authService.loggedIn$.subscribe(
+      (loggedIn) => (this.isUserLoggedIn = loggedIn)
+    );
+  }
+
+  ngOnDestroy(): void {
+      this.subscription.unsubscribe();
   }
 
   logOut(): void {

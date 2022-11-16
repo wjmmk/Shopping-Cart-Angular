@@ -9,9 +9,6 @@ import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
-import { RouterModule, Routes } from '@angular/router';
-import { CatalogComponent } from './catalog/catalog.component';
-import { ContactComponent } from './contact/contact.component';
 import { ContactModule } from './contact/contact.module';
 
 

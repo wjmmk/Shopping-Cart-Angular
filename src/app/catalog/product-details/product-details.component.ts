@@ -4,6 +4,8 @@ import { ShoppingCartService } from 'src/app/shopping-cart/shopping-cart.service
 import { CatalogService } from '../catalog.service';
 import { Product } from '../product';
 import { mapProductToCartItem } from '../helpers/map-product-to-cart-item.helper';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +13,13 @@ import { mapProductToCartItem } from '../helpers/map-product-to-cart-item.helper
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  product!: Product | null;
+  id$: Observable<number> = this.route.paramMap.pipe(
+    map((paramMap) => Number(paramMap.get('id')))
+  )
+  product$: Observable<Product | null> = this.id$.pipe(
+    switchMap(id => this.catalogService.getProduct(id)),
+    tap(product => product === null && this.router.navigate(['catalog']))
+  )
 
   constructor(
     private catalogService: CatalogService,
@@ -20,25 +28,10 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    // this.route.paramMap.subscribe( paramMap => {
-    //   const productId = paramMap.get('id');
-    // });
+  ngOnInit(): void {}
 
-    const productId = this.route.snapshot.paramMap.get('id');
-    this.product = this.catalogService.getProduct(Number(productId));
-
-    if (this.product === null) {
-      this.router.navigate(['catalog']);
-    }
-  }
-
-  addToCart(): void {
-    if (this.product === null) {
-      return;
-    }
-
-    const cartItem = mapProductToCartItem(this.product);
+  addToCart(product: Product): void {
+    const cartItem = mapProductToCartItem(product);
     this.scService.addItem(cartItem);
   }
 

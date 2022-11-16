@@ -9,13 +9,9 @@ import { ShoppingCartService } from './shopping-cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  get cartItems(): CartItem[] {
-    return this.shoppingCartService.items;
-  }
+  cartItems$ = this.shoppingCartService.items$;
 
-  get total(): number {
-    return this.shoppingCartService.total;
-  }
+  total$ = this.shoppingCartService.total$;
 
   constructor( private shoppingCartService: ShoppingCartService) { }
 

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from './product';
 
 @Injectable({
@@ -6,7 +8,7 @@ import { Product } from './product';
 })
 export class CatalogService {
 
-  readonly products: Product[] = [
+  private products = new BehaviorSubject<Product[]>([
     {
       id: 1,
       imageUrl: 'headphones.jpg',
@@ -31,11 +33,17 @@ export class CatalogService {
       name: 'Mouse-Gamer',
       price: 40.00
     }
-  ];
+  ]);
+
+  products$ = this.products.asObservable();
 
   constructor() { }
 
-  getProduct(requestId: number): Product | null {
-    return this.products.find((product) => product.id === requestId) || null;
+  getProduct(requestId: number): Observable<Product | null> {
+    return this.products$.pipe(
+      map(
+        (products) => products.find((product) => product.id === requestId) || null
+      )
+    );
   }
 }

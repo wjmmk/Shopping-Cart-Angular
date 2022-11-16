@@ -13,9 +13,7 @@ export class HeaderComponent implements OnInit {
 
   constructor( private scService: ShoppingCartService) { }
 
-  get itemsCount(): number {
-    return this.scService.itemsCount;
-  }
+  itemsCount$ = this.scService.itemsCount$;
 
   ngOnInit(): void {
   }

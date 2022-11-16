@@ -1,1 +1,11 @@
-<p>shopping-cart works!</p>
+<p class="title">Mí Carro de Compras!!!</p>
+
+<app-shopping-cart-item 
+        *ngFor="let item of cartItems" 
+        [cartItem]="item" 
+        (cartItemDelete)="deleteItem(item)"
+></app-shopping-cart-item>
+
+<p class="total"><span class="total-label">total: </span> {{total | number: "1.2-2" | currency }}</p>
+
+<button>Finalizar Pedido</button>

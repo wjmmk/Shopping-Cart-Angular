@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular';
+  title = 'Shoping Cart';
+  isCartVisible = false;
+  isMenuOpened = false;
+
+  toggleCartVisibility(): void {
+    this.isCartVisible = !this.isCartVisible;
+  }
+
+  showMenu(): void {
+    this.isCartVisible = false;
+    this.isMenuOpened = true;
+  }
+
+  hideMenu(): void {
+    this.isMenuOpened = false;
+  }
 }

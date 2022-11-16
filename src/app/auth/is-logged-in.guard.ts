@@ -12,7 +12,11 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class IsLoggedInGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private authService: AuthService, private router: Router) {}
+  
+  constructor(
+    private authService: AuthService, 
+    private router: Router
+  ) {}
 
   canLoad(): boolean | UrlTree {
     return this.isUserLoggedIn();

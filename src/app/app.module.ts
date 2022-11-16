@@ -9,6 +9,7 @@ import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 
 
@@ -25,7 +26,8 @@ import { AuthModule } from './auth/auth.module';
     ShoppingCartModule,
     CatalogModule,
     AuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

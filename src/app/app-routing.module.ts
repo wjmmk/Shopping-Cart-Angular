@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogComponent } from './catalog/catalog.component';
-import { ProductDetailsComponent } from './catalog/product-details/product-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -14,14 +12,6 @@ const routes: Routes = [
   {
     path: 'contact',
     loadChildren: () => import('./contact/contact.module').then( (m) => m.ContactModule)
-  },
-  {
-    path: 'catalog',
-    component: CatalogComponent
-  },
-  {
-    path: 'catalog/:id',
-    component: ProductDetailsComponent
   },
   {
     path: '**',

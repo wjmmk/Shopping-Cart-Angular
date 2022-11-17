@@ -6,8 +6,8 @@ import { errorsDictionary } from './errors.dictionary';
 @Component({
   selector: 'app-form-error-msg',
   template: `<p *ngIf="control?.hasError(errorCode)">
-    {{ errorMsg }}
-  </p> `,
+                 {{ errorMsg }}
+             </p> `,
 })
 export class FormErrorMsgComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename

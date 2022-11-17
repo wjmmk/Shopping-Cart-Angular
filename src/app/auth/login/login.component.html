@@ -1,12 +1,21 @@
 <h1>Inicia Sesión</h1>
-<form>
+<form [formGroup]="loginForm">
   <label>
     Email
-    <input type="email" name="email" />
+    <input type="email" name="email"  formControlName="email" autocomplete="off"/>
   </label>
+  <app-form-error-container [forControl]="emailControl">
+    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+    <app-form-error-msg forErrorCode="email"></app-form-error-msg>
+  </app-form-error-container>
+
   <label>
     Contraseña
-    <input type="password" name="password" />
+    <input type="password" name="password" formControlName="password"/>
   </label>
+  <app-form-error-container [forControl]="emailControl">
+    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+  </app-form-error-container>
 </form>
-<button (click)="signIn()">Iniciar Sesión</button>
+<button (click)="signIn()" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+

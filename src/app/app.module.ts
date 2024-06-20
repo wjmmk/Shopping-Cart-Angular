@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     NavDrawerComponent,
     PageNotFoundComponent
-    
+
   ],
   imports: [
     BrowserModule,

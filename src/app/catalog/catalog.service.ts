@@ -44,7 +44,7 @@ export class CatalogService {
     {
       id: 6,
       imageUrl: 'torre.jpg',
-      name: '-Gamer',
+      name: 'Gamer',
       price: 950.00
     }
   ]);

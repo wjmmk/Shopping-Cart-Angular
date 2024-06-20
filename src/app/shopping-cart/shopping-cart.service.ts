@@ -20,6 +20,7 @@ export class ShoppingCartService {
     map( (items) => items.reduce((acc, { price }) => (acc += price), 0))
   );
 
+
   constructor() { }
 
   addItem(item: CartItem): void {

@@ -7,7 +7,7 @@ import { LoginCredentials } from './login/login-credentials';
   providedIn: 'root'
 })
 export class AuthService {
-  loggedIn = new BehaviorSubject<boolean>(false);
+  private  loggedIn = new BehaviorSubject<boolean>(false);
   loggedIn$ = this.loggedIn.asObservable();
 
   constructor(private router: Router) { }

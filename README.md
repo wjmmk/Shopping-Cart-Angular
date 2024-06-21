@@ -11,3 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Demo Image 2.
 ![](https://github.com/wjmmk/Shopping-Cart-Angular/blob/main/src/assets/carrito.png)
+
+## The Code Work.
+node version 16.
+

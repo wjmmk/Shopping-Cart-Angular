@@ -10,7 +10,7 @@ import { errorsDictionary } from './errors.dictionary';
              </p> `,
 })
 export class FormErrorMsgComponent implements OnInit {
-  // tslint:disable-next-line: no-input-rename
+
   @Input('forErrorCode') errorCode!: string;
   @Input() customMsg: string | null = null;
   control!: AbstractControl | null;

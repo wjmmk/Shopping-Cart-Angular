@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './profile/change-password/change-passwo
 import { PhonesComponent } from './profile/phones/phones.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormExtensionsModule } from '../form-extensions/form-extensions.module';
+import { AddressComponent } from './profile/address/address.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FormExtensionsModule } from '../form-extensions/form-extensions.module'
     ChangeUsernameComponent,
     ChangePasswordComponent,
     PhonesComponent,
+    AddressComponent,
   ],
   imports: [
     CommonModule,

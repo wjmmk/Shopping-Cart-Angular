@@ -7,6 +7,7 @@
         </label>
         <app-form-error-container [forControl]="phone">
           <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+          <app-form-error-msg forErrorCode="pattern"></app-form-error-msg>
         </app-form-error-container>
       </ng-container>
       <button class="add" (click)="addPhoneRow()">+ Añadir</button>

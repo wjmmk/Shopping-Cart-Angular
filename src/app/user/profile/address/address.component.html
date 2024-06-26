@@ -1,0 +1,14 @@
+<form name="address" [formGroup]="addressForm">
+  <div formArrayName="addresses">
+    <ng-container *ngFor="let address of address.controls; index as i">
+      <label>
+        <input type="text" name="addresses-{{ i }}" [formControlName]="i" />
+        <button (click)="deletePhoneAtRow(i)">Eliminar</button>
+      </label>
+      <app-form-error-container [forControl]="address">
+        <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+      </app-form-error-container>
+    </ng-container>
+    <button class="add" (click)="addPhoneRow()">+ Añadir</button>
+  </div>
+</form>

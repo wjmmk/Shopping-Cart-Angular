@@ -10,8 +10,7 @@ import { passwordsMustBeEqual } from 'src/app/form-extensions';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  passwordChangeForm = new FormGroup(
-    {
+  passwordChangeForm = new FormGroup({
       newPassword: new FormControl('', Validators.required),
       passwordConfirm: new FormControl('', Validators.required),
     },

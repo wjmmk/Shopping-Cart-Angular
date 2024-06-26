@@ -32,9 +32,4 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(credentials);
   }
 
-  updateEmail(): void {
-    const control = this.loginForm.get('email') as FormControl;
-    control.setValue('nuevoValor');
-  }
-
 }

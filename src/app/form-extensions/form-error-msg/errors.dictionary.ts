@@ -7,5 +7,5 @@ export const errorsDictionary: ErrorsDictionary = {
     email: 'Debe ser un email válido.',
     passwordsMustBeEqual: 'Las contraseñas no coinciden.',
     checkUsernameIsAvailable: 'El nombre de usuario no está disponible.',
-    pattern: 'Este campo solo admite datos numericos.'
+    pattern: 'Debe ingresar un dato telefonico correcto.'
 };

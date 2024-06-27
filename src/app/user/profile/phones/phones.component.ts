@@ -23,7 +23,7 @@ export class PhonesComponent implements OnInit {
   }
 
   addPhoneRow(): void {
-    this.phones.push(new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]));
+    this.phones.push(new FormControl('', [Validators.required, Validators.pattern('^\\+?[1-9]\\d{0,2}[-.\\s]?\\(?\\d{1,4}\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$')]));
   }
 
   deletePhoneAtRow(index: number): void {

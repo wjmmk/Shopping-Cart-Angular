@@ -9,12 +9,14 @@ import { UserService } from '../../user.service';
   styleUrls: ['./change-username.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class ChangeUsernameComponent implements OnInit {
 
   newUsernameControl = new FormControl('miNombreActual', {
     asyncValidators: checkUsernameIsAvailable(this.userService),
     updateOn: 'blur',
-  });
+    }
+  );
 
   constructor(private userService: UserService) {}
 

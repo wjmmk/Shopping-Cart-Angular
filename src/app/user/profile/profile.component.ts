@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +10,21 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  private  loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn$ = this.loggedIn.asObservable();
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(): void {
+    this.loggedIn.next(false);
+    this.redirectToHome();
+  }
+
+  private redirectToHome(): void {
+    this.router.navigate(['/']);
   }
 
 }

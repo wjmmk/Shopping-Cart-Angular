@@ -6,12 +6,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## The Code Work.
+node version 16.
+
 ## Demo Of App.
 ![](https://github.com/wjmmk/Shopping-Cart-Angular/blob/main/src/assets/index.png)
 
 ## Demo Image 2.
 ![](https://github.com/wjmmk/Shopping-Cart-Angular/blob/main/src/assets/carrito.png)
 
-## The Code Work.
-node version 16.
+
 
